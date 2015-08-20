@@ -64,5 +64,23 @@ CSG - Geometria Sólido-Construtiva
   
   
   
+  BSP Tree
   
+  - usado para representar poliedros quaisquer
+  - é uma árvore binária que indica que o objeto está em um dos lados das ramificações
+  - permite representar não convexos e convexos
+  - elegante e simples conceitualmente
+  
+  Mesma idéia do OCtree
+  entretanto o espaço é sucessivamente dividido em 2 partes(dai o nome) convexas por um plano 
+  de corte
+  
+  Representação por Geometria Sólida Construtiva
+  
+  Definição:
+  - armazena as operações booleanas
+  - armazena a história da construção do objeto, 'as intenções do projeto'
+  - não armazena os resultados intermediarios
+  
+  Um modelo CSG é codificado por uma árvore binária
     
