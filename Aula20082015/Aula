@@ -1,0 +1,68 @@
+Modelagem Geometrica
+
+Decomposição espacial: Quatrees,Octrees,BSPtree
+
+CSG - Geometria Sólido-Construtiva
+
+
+
+->Representação por enumeração da Ocupação Espacial ou Decomposição
+  - Representação Uniforme(Enumera)
+  - Representação não-uniforme(Decompõe)
+  
+  
+  Espacial: objetos descritos por meio de cubos dipostos matricialmente
+    - cada cubo é chamado de voxel(volume element)
+    
+    Decomposição:Objetos são representados por uma coleção de Objetos primitivos, geralmente 
+    cubos
+    
+    
+    Representação Uniforme:
+    na representação uniforme, a subdivisão espacial mais utilizada é a que se baseia em um 
+    reticulado uniforme
+    -> esse esquema da origem a uma representação matricial
+    
+    Representação Matricial:
+    -> cada voxel possui amostra dos valores de atributos na região associada, pertencente 
+    ao sólido
+    ->a representação matricial é tambem denominada representação volumetrica
+    
+    -> pode ser estendida como uma imagem 3D onde os voxels fazem o papel dos pixels
+    
+    Vantagens:diversas técnicas de análise e processamento pode ser aplicadas
+     -> a avaliação é simples devido a sua estrutura simples(volumetric rendering)
+     -> é uma representação utilizada pela grande maioria dos equipamentos de captura 
+     de objetos volumetricos
+     
+     
+     caracteristicas voxels:
+     ->muito utilizada em visualização volumétrica
+     ->eficiente(para operações booleanas regularizadas)
+      -> trabalha no domínio dos números inteiros
+      -> tem unicidade
+      -> domínio: representa qualquer sólido
+      -> a precisão depende do tamanho/forma do voxel
+      -> não é ambigua, fácil de validar
+      -> não é concisa
+        ->muito espaço é perdido(matriz) para representar o vazio
+        ->pode ser otimizado pelarepresentação de matrizes espaças ou tecnicas associadas
+        
+  
+  Representação por decomposição não uniforme com variação de tamanho
+  2D – Quadtree (árvore de quadrantes)
+  3D – Octree (árvore de octantes)
+  
+  Árvore de quadrantes(quadtree)
+  convenção:
+  full = onde tem objeto ou parte do objeto
+  empty = onde não tem nada do objeto
+  
+  Árvore de Octantes
+  -> voxels correspondem a pixels em 3D
+  -> enumeração força-bruta classificando as células do espaço como cheias ou vazias
+  
+  
+  
+  
+    
