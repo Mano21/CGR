@@ -1,0 +1,6 @@
+Trabalho Complementar 4
+1) Crie um boneco de neve utilizando quádricas
+2) Modele a construção abaixo utilizando quádricas
+3) Desenhe um robô humanoide utilizando quádricas e
+garanta que ele possa ser articulado no futuro (mover
+braços, pernas,...)
