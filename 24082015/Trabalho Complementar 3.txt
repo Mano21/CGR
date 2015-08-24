@@ -1,0 +1,14 @@
+Trabalho Complementar 3
+
+• Desenvolver um sistema de partículas
+utilizando OpenGL (impostores/billboards
+ou pontos);
+
+• Utilizar qualquer biblioteca para
+manipulação de “janelas”: GLUT, SDL, QT,
+wxWidgets, FLTK,...
+
+• Exemplos: fumaça, fogo, chuva, cascata,
+neve, chafariz, fogos de artifício, etc.
+
+• Data limite de entrega: 10/09/2015
