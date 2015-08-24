@@ -1,0 +1,136 @@
+OpenGL
+
+Open Graphics Library
+
+-> Uma interface de software com hardware gráfico
+
+-> Construída na forma de API
+
+
+O que é?
+
+Independente do sistema operacional e do hardware
+projetada para aplicações gráficas interativas 2D e 3D
+
+controla pelo ARB(Architectura Review Board)
+
+OpenGL/ES
+
+subconjunto da OpenGL com algumas extensões
+OpenGL ES-SC: para aplicações críticas
+(ex: aviação e automotiva)
+
+
+==> Características:
+Rapidez,portabilidade,estabilidade,excelente qualidade visual,padrão de industria,
+suporte para: mapeamento de texturas,iluminação,transparência,animação....
+
+
+
+OpenGL
+
+-> o que faz:
+1 - Constrói formas a partir de objetos primitivos como pontos, linhas, polígonos,imagens
+e bitmaps
+2 - permite visualizar essas primitivas de qualquer ponto de um espaço tridimensional
+3 - calculas as cores dos objetos,que podem ser pré-definidas,determinadas por 
+condições de iluminação,texturas ou combinação dessas três
+4 - converte as primitivas ára pixels(rasterização)
+
+-> o que não faz:
+1 - tarefas relacionadas a manipulação de janelas
+2 - não preocessa nenhuma entrada de usuário
+3 - não possui comandos de alto nível para construir objetos de 3 dimensões
+4 - não armazena estrutura de dados
+
+
+Exemplo de Código em OpenGL:
+glClearColor(0.0, 0.0, 0.0, 0.0);
+glClear(GL_COLOR_BUFFER_BIT);
+glColor3f(1.0,1.0,1.0);
+glOrtho(0.0,1.0,0.0,1.0,-1.0,1.0);
+glBegin(GL_POLYGON);
+    glVertex3f(0.25,0.25,0.0);
+    glVertex3f(0.75,0.25,0.0);
+    glVertex3f(0.75,0.75,0.0);
+    glVertex3f(0.25,0.75,0.0);
+glEnd();
+glFlush();
+
+Aspectos técnicos:
+• Primitivas são pontos, linhas, polígonos, imagens e bitmaps;
+• O desenho das primitivas é afetado pelo estado atual das variáveis de controle:
+– escala, rotação, translação, cor, iluminação, textura,largura de linhas, etc.
+• As variáveis de controle têm valores default;
+
+
+GLU: OpenGL Utility Library
+
+-> conjunto de rotinas utilziadas frequentemente
+-> acompanha todas as distribuições OpenGL
+-> construídas a partir de comandos OpenGL
+
+Rotinas para:
+manipulação de projeções, desenho de superfícies quádricas, NURBS,Manipulação
+de superfícies poligonais.
+
+
+Sintaxe dos Comandos
+• Todos os comandos OpenGL seguem um padrão.
+    As funções sempre começam com gl.
+
+• Indica:
+– Função
+– Quantidade de parâmetros
+– Tipo de dados dos parâmetros
+
+Tipos de Dados
+• Problema: Cada compilador ou ambiente possui regras diferenciadas para o
+tamanho das variáveis.
+
+• Solução:Tipos de dados próprios do OpenGL.
+
+• Portabilidade garantida.
+
+Máquina de Estados
+• Cada estado OpenGL vale até o programa
+explicitamente trocá-lo;
+• Ao definir uma cor, ela valerá para qualquer
+objeto na sequência até um novo comando de cor;
+• Outros exemplos de estado: padrão de
+preenchimento de linhas e polígonos, posições e
+características de luzes, propriedades dos
+materiais, transformações...
+
+
+
+Erros
+• Quando ocorre algum erro em OpenGL ou GLU o
+programa não para; apenas não faz o esperado, o que
+dificulta a depuração!
+• Quando um erro ocorre um flag é setado com um código
+de erro. Para acessar esse código deve-se usar
+glGetError();
+• Por outro lado... cada chamada OpenGL a mais afetam a
+performance...Em alguns casos quando queremos
+renderização em tempo real temos que eliminar o maior
+número possível dessas chamadas!
+
+
+Dicas
+• A origem do OpenGL é no canto esquerdo (left-
+hand );
+• Lembre-se de:
+– ativar o modo de preenchimento desejado:
+glEnable(GL_DEPTH_TEST);
+– Limpar os respectivos buffers:
+glClear(GL_COLOR_BUFFER_BIT |
+GL_DEPTH_BUFFER_BIT);
+
+GLUT
+• Graphics Library Utility Toolkit
+• Biblioteca de software que se integra com
+OpenGL (autor: Mark J. Kilgard - SGI)
+• Habilita acesso aos eventos do sistema
+operacional necessários em programas interativos
+– mouse, teclado, display, etc
