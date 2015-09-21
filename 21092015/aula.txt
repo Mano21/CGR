@@ -1,0 +1,132 @@
+Iluminação
+
+modelos de iluminação: luz ambiente, refelxão difusa, atenuação atmosférica, reflexão especular,
+modelo de iluminação de Phong, múltiplas fontes de Luz.
+
+objetivo modelo de iluminação: determianr uma com numa superficies, considerando suas
+propriedades (cor,textura,material....) e fatores externos, como a luz que incide
+sobre a superfície, num determinado ponto da mesma.
+
+estes modelos determinam como a luz interfere (como é recebida) numa superfície.
+
+isto implica em alterações na visualização do objeto, ou seja, em como ele será 
+renderizado.
+
+reflexão Difusa(luz difusa) - tambem conhecida como Lambert's Cosine Law (ou reflexão 
+Lambertiana)
+
+em óptica. a lei de lambert diz que a intensidade luminosa da uma superfície
+refletora difusa ideal é diretamente proporcional ao consseno do ângulo θ entre a direção 
+da luz incidente L e a normal das superfícies N.
+
+
+com isso a iluminção das partes do objeto varia de acordo com a distância e a direção 
+em relação ao ponto de luz.
+
+
+reflexão difusa: sendo assim, reflexão difusa independe da direção do observador sendo
+proporcional somente ao cosseno de θ
+
+
+Luz Ambiente: Agora, ao invés de considerar apenas a reflexão Lambertiana, consideramos a existência de uma
+fonte de luz sem direção específica, resultante das reflexões entre as muitas superfícies
+presentes no ambiente: conhecida como luz ambiente
+
+Num modelo de iluminação ambiente, fatores
+externos de iluminação são ignorados e um
+objeto é desenhado apenas com a cor que é
+intrínseca a ele.
+
+
+Atenuação Atmosférica
+• Simulação de atenuações atmosféricas ou condições de
+visibilidade do ambiente (depth cueing):
+– Névoa, por exemplo.
+– Situações aonde os objetos possuem brilho diferente
+conforme a profundidade.
+– Similar a idéia de atenuação da fonte luz.
+– Objetivo é modificar uma intensidade já calculada
+– A modificação será determinada por fatores de escala
+(sf e sb) que indicarão o combinação da intensidade
+com uma cor sugerida para o efeito da atenuação
+
+Reflexão Especular
+• Círculos brilhantes (highlight) que aparecem em superfícies
+“brilhosas” (superfície especular).
+• Para observar: ilumine uma bola de bilhar com uma luz
+branca e aparecerá um brilho causado pela reflexão
+especular.
+• Neste ponto a cor será branca e não a cor original da bola.
+• Movimentando a cabeça nota-se que o brilho se move.
+• Superfícies refletem luz de forma diferente em diferentes
+direções.
+• Portanto, o observador recebe a cor da reflexão da luz no
+objeto.
+
+Phong desenvolveu em 1975, um modelo para a parcela de
+reflexão especular que assumia que:
+– A máxima reflexão especular ocorre quando α é zero e cai
+rapidamente quando α cresce;
+– Essa mudança é representada por cos^n α, onde n é o
+expoente de reflexão especular.
+• Valores de n variam de 1 até centenas, dependendo do
+material simulado.
+
+
+Modelos de sombreamento
+• Como preencher um polígono considerando aspectos
+de iluminação?
+– Solução 1: uma idéia é calcular a normal em cada
+ponto visível da superfície e aplicar um modelo de
+iluminação para cada ponto (força bruta).
+• Problema: Custo computacional é muito elevado.
+– Solução 2: modelos de sombreamento.
+• Executam o preenchimento do polígono de forma
+eficaz e eficiente.
+
+Constant shading
+Flat shading
+Interpolated shading
+Polygon mesh shading
+Gouraud Shading
+Phong Shading
+
+
+
+
+Iluminação em OpenGL
+
+• As propriedades do material dum objecto definem como
+ele interage com as fontes de luz por forma a produzir a
+sua cor final.
+• As propriedades do material são definidas através de:
+glMaterial{fi}(GLenum face,GLenum pname,T param);
+glMaterial{fi}v(GLenum face,GLenum pname,T *params);
+• Os objetos podem ter materiais diferentes para os
+polígonos visíveis (anteriores) e para os polígonos
+ocultos (posteriores).
+
+
+Propriedades dos Materiais em OpenGL
+• GL_AMBIENT, GL_DIFFUSE,GL_AMBIENT_AND_DIFFUSE
+GL_SPECULAR
+e são usadas para definir como o material interage com as
+componentes respectivas da fonte de luz.
+• GL_SHININESS controla o extensão do realce ou
+brilho especular.
+• GL_EMISSION controla a quantidade de luz que
+um objecto emite.
+
+Cor do Material em OpenGL
+• Normalmente, quando a iluminação é ativada, a cor
+primária (especificada por glColor() ) é ignorada.
+• Contudo, pode ser conveniente mudar as cores do
+material através de glColor() em vez de usar
+glMaterial() . Isto é possível se for ativada a cor do
+material com:
+glEnable(GL_COLOR_MATERIAL);
+• As componentes de material (ambiente, difusa, ambiente
+e difusa, ou especular) e as faces (anteriores, posteriores,
+ou ambas) afetadas pela cor do material podem ser
+controladas com:
+glColorMaterial(GLenum face, GLenum mode);
