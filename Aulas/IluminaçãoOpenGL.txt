@@ -1,0 +1,53 @@
+Iluminação em OpenGL
+
+Assume fontes pontuais de Luz
+  Omnidirecionais: todas as direções
+  Ex: sol(direcional), luz incandescente(pontual);
+  
+  Spot: um feixe de luz
+  Ex: lanterna, luminária de mesa, holofote.
+  
+  
+  Interações de luz com superficie modeladas em componentes (Modelo de Phong):
+    Emissão
+    Ambiente
+    Difusa
+    Especular
+  
+  
+  Suporte a efeitos atmosféricos como: Fog, atenuação
+  
+  Modelo de iluminação é calculada apenas nos vértices das superfícies:
+    - Cor dos demais pixels é interpolada lineramente(sombreamento Gouraud)
+    
+  
+  
+  Fontes de Luz:
+    para ligar uma fonte: glEnable(source);
+      source é uma constante cujo nome é GL_LIGHTi,
+      começando com o GL_LIGHT0
+      
+      quantas? Pelo menos 8, mas para ter certeza:
+        glGetIntegerv(GL_MAX_LIGHTS,&n);
+        
+    
+    Não esquecer de ligar o cálculo de cores pelo modelo de Iluminação
+      -glEnable(GL_LIGHTING);
+      
+    
+    Para configurar as propriedades de cada fonte:
+    glLightfv(source,property,value);
+      - property é uma constante designando:
+        Coeficientes de cor usados no modelo de iluminação:
+          - GL_AMBIENT, GL_DIFUSE,GL_SPECULAR
+        
+        Geometria da Fonte:
+          -GL_POSITION, GL_SPOT_DIRECTION, GL_SPOT_CUTOFF,
+          GL_SPOT_EXPONENT
+        
+        Coeficientes de atenuação
+          – GL_CONSTANT_ATTENUATION, GL_LINEAR_ATTENUATION,
+          GL_QUADRATIC_ATTENUATION
+          
+        
+        PArei no slide 7
